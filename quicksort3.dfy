@@ -113,6 +113,7 @@ method QuickSort(a:array<int>, lo:nat, hi:nat)
     // Right side of pivot
     ghost var preSortRight := a[..];
     QuickSort(a, p+1, hi); 
+    assert a[hi] == preSortRight[hi];
     LemmaMultiset(a[..], preSortRight[..], p+1, hi);
     LemmaMultisetPreservesGreater(a[..], preSortRight[..], pivot, p+1, hi);
   }
